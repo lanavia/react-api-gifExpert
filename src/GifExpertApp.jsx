@@ -16,6 +16,7 @@ export const GifExpertApp = () => {
             {/* Input */}
             {/* Listado de Gif */}
             <AddCategory setCategories={setCategories} />
+
             {/* acá usamos el event */}
             <button onClick={onAddCategory}>add category</button>
 
