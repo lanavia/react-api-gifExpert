@@ -9,9 +9,10 @@ export const GifGrid = ({ category }) => {
     return (
         <>
             <h3>{category}</h3>
+            {
+                isLoading && (<h2>Cargando...</h2>)
+            }
             <div className='card-grid'>
-
-
                 { //opcion 2 esparcir todas las propiedades de la imagen con el operador spread ...
                     images.map((image) => (
 

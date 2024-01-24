@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en <GifItem/> Should match with snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <p>
+      Saitama
+    </p>
+    <img
+      src="https://onepunchman.fandom.com/es/wiki/Saitama"
+    />
+  </div>
+</div>
+`;
