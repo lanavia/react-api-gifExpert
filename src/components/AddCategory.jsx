@@ -1,7 +1,9 @@
 import { useState } from "react"
+import PropTypes from 'prop-types'
 
-export const AddCategory = ({ setCategories }) => {
-    const [inputValue, setInputValue] = useState('One Punch 2')
+
+export const AddCategory = ({ onNewCategory }) => {
+    const [inputValue, setInputValue] = useState('')
     const onInputChange = (event) => {
         setInputValue(event.target.value)
     }
@@ -11,18 +13,29 @@ export const AddCategory = ({ setCategories }) => {
         console.log(inputValue)
         if (inputValue.trim().length <= 1) return
 
-        setCategories(prevCategories =>
-            prevCategories.some(category => category.toLowerCase() === inputValue.toLowerCase())
-                ? (console.log("el valor ya existe", inputValue), prevCategories)
-                : (console.log("valor nuevo", inputValue), [...prevCategories, inputValue])
-        );
         setInputValue('')
-
-
+        onNewCategory(inputValue.trim())
     }
     return (
+        /*  Remove (event)
         <form onSubmit={(event) => onSubmit(event)}>
-            <input type="text" placeholder="Buscar gifs" value={inputValue} onChange={(event) => onInputChange(event)} />
+             <input type="text"
+                 placeholder="Buscar gifs"
+                 value={inputValue}
+                 onChange={(event) => onInputChange(event)} />
+         </form> */
+
+        <form onSubmit={onSubmit}>
+            <input
+                type="text"
+                placeholder="Buscar gifs"
+                value={inputValue}
+                onChange={onInputChange}
+            />
         </form>
     )
+}
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired,
 }
